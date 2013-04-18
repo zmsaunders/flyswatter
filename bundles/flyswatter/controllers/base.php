@@ -1,9 +1,8 @@
 <?php
 
 class Flyswatter_Base_Controller extends Controller {
-	
+
 	public $restful 	= TRUE;
-	public $layout 		= 'flyswatter::layouts.main';
 
 	public function __construct()
 	{
