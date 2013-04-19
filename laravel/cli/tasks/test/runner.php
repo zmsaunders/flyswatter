@@ -11,7 +11,7 @@ class Runner extends Task {
 	 * The base directory where the tests will be executed.
 	 *
 	 * A phpunit.xml should also be stored in that directory.
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $base_path;
@@ -67,7 +67,7 @@ class Runner extends Task {
 			{
 				$this->stub($path);
 
-				$this->test();				
+				$this->test();
 			}
 		}
 	}
@@ -83,12 +83,14 @@ class Runner extends Task {
 		// pointing to our requested configuration file. This allows
 		// us to flexibly run tests for any setup.
 		$path = 'phpunit.xml';
-		
+
 		// fix the spaced directories problem when using the command line
 		// strings with spaces inside should be wrapped in quotes.
 		$esc_path = escapeshellarg($path);
 
-		passthru('LARAVEL_ENV='.Request::env().' phpunit --configuration '.$esc_path, $status);
+		// Modify to support unit tests on windows.
+		passthru('phpunit --configuration '.$esc_path, $status);
+		// passthru('LARAVEL_ENV='.Request::env().' phpunit --configuration '.$esc_path, $status);
 
 		@unlink($path);
 
