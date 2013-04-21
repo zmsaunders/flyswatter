@@ -36,5 +36,5 @@ Next, run the following:
 
 Run the following to publish flyswatter's assets:
 
-'php artisan bundle:publish flyswatter'
+`php artisan bundle:publish flyswatter`
 
