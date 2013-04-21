@@ -1,67 +1,40 @@
-# [Laravel](http://laravel.com) - A PHP Framework For Web Artisans
+# Flyswatter Issue Tracker Bunder
 
-Laravel is a clean and classy framework for PHP web development. Freeing you
-from spaghetti code, Laravel helps you create wonderful applications using
-simple, expressive syntax. Development should be a creative experience that you
-enjoy, not something that is painful. Enjoy the fresh air.
+A laravel bundle to add an issue tracker to your app
 
-[Official Website & Documentation](http://laravel.com)
+## Installation
 
-## Feature Overview
+### 1 - Install Bundle Files
 
-- Simple routing using Closures or controllers.
-- Views and templating.
-- Driver based session and cache handling.
-- Database abstraction with query builder.
-- Authentication.
-- Migrations.
-- PHPUnit Integration.
-- A lot more.
+Copy the `flyswatter` folder into your `bundles` directory.
 
-## A Few Examples
+### 2 - Register the Bundle
 
-### Hello World:
+In /app/bundles.php, add the following:
 
 ```php
-<?php
+return array(
 
-Route::get('/', function()
-{
-	return "Hello World!";
-});
+	/* Other bundles registrations... */
+
+	'flyswatter' => array('handles' => 'issues'),
+
+);
 ```
 
-### Passing Data To Views:
+### 3 - Run the Bundle Migrations
 
-```php
-<?php
+If you haven't run any migrations yet, initialize the migrations table:
 
-Route::get('user/(:num)', function($id)
-{
-	$user = DB::table('users')->find($id);
+`php artisan migrate:install`
 
-	return View::make('profile')->with('user', $user);
-});
-```
+Next, run the following:
 
-### Redirecting & Flashing Data To The Session:
+`php artisan migrate flyswatter`
 
-```php
-<?php
+### 4 - Publish the bundle assets
 
-return Redirect::to('profile')->with('message', 'Welcome Back!');
-```
+Run the following to publish flyswatter's assets:
 
-## Contributing to Laravel
+'php artisan bundle:publish flyswatter'
 
-Contributions are encouraged and welcome; however, please review the Developer
-Certificate of Origin in the "license.txt" file included in the repository. All
-commits must be signed off using the `-s` switch.
-
-```bash
-git commit -s -m "this commit will be signed off automatically!"
-```
-
-## License
-
-Laravel is open-sourced software licensed under the MIT License.
