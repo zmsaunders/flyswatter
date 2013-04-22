@@ -5,19 +5,20 @@
 	<small>Dashboard</small>
 @endsection
 
+@section('nav')
+	@parent
+@endsection
+
 @section('content')
-	@forelse($issues as $issue)
-		<h3>{{ $issue->summary }}</h3>
-		<p>{{ $issue->description }}</p>
-		<p class="muted"><small>Reported by: {{$issue->reporter}} | Assigned to: {{ $issue->owner }}</small></p>
-		<ul>
-		@forelse($issue->comments as $comment)
-			<li>{{$comment->comment}} <small class="muted"> - {{$comment->commentor}} at {{$comment->created_at}}</small></li>
-		@empty
-			<li>No Comments.</li>
-		@endforelse
-		</ul>
-		<hr />
+	@forelse($projects as $project)
+			<h3>{{$project->name}}</h3>
+			<div class="well">
+			@foreach($project->issues()->take(5)->get() as $issue)
+				<h5><a href="#">{{ $issue->summary }}</a></h5>
+				<p class="muted"><small>Comments: {{$issue->comments()->count()}}  | Reported by: {{$issue->reporter}} | Assigned to: {{ $issue->owner }}</small></p>
+				<hr />
+			@endforeach
+			</div>
 	@empty
 		<p>No Issues :-(</p>
 	@endforelse

@@ -8,25 +8,48 @@
 		{{ Asset::container('header')->styles() }}
 	</head>
 	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="/issues">Flyswatter</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><a href="/issues">Dashboard</a></li>
+							<li><a href="/issues/new">New Issue</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Nav -->
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span2">
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							@section('nav')
-							<li class="nav-header">Tickets</li>
-							<li><a href="/ticket/new">New</a></li>
+							<li class="nav-header">Projects</li>
+							@foreach(\Flyswatter\Models\Project::all() as $project)
+							<li><a href="/issues/project/{{$project->id}}">{{$project->name}}</a></li>
+							@endforeach
 							@yield_section
 						</ul>
 					</div>
 				</div>
 				<div class="span10">
 					<header class="row-fluid">
-						<h1>
-							@section('header')
-							Flyswatter
-							@yield_section
-						</h1>
+						<div class="page-header">
+							<h1>
+								@section('header')
+								Flyswatter
+								@yield_section
+							</h1>
+						</div>
 					</header>
 					@yield('content')
 				</div>

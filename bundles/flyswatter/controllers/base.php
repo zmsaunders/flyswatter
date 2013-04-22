@@ -11,6 +11,8 @@ class Flyswatter_Base_Controller extends Controller {
 		// Bootstrap CSS Framework
 		Asset::container('header')->bundle('flyswatter');
 		Asset::container('header')->add('bootstrap', 'css/bootstrap.min.css');
+		Asset::container('header')->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css');
+		Asset::container('header')->add('flyswatter', 'css/flyswatter.css');
 
 		// jQuery & Bootstrap JS Frameworks
 		Asset::container('footer')->bundle('flyswatter');
