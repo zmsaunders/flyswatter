@@ -1,0 +1,7 @@
+test:
+    pre:
+        - php artisan bundle:publish flyswatter
+        - php artisan migrate:install
+        - php artisan migrate
+    override:
+        - php artisan test
