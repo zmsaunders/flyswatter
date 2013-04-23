@@ -36,6 +36,6 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
-	'flyswatter' => array('handles' => 'issues'),
+	'flyswatter' => array('handles' => 'bugs'),
 
 );
