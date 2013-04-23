@@ -30,7 +30,16 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span2">
-					{{ $side_nav }}
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+						@section('nav')
+							<li class="nav-header">Projects</li>
+							@foreach($projects as $project)
+							<li><a href="/issues/project/{{$project->id}}">{{$project->name}}</a></li>
+							@endforeach
+						@yield_section
+						</ul>
+					</div>
 				</div>
 				<div class="span10">
 					<header class="row-fluid">

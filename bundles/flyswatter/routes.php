@@ -6,12 +6,9 @@ Route::controller(array(
 	'flyswatter::home',
 	'flyswatter::issue',
 	'flyswatter::seed',
+	'flyswatter::comment',
+	'flyswatter::project',
 ));
 
-// LIKE A BOSS
-$rendered_views = array(
-	'flyswatter::forms.new-issue',
-);
-View::composer($rendered_views, function($view){
-	$view->nest('side_nav', 'flyswatter::layouts.project-nav', array('projects' => \Flyswatter\Models\Project::all()));
-});
+View::share('flyswatter', '/'.Bundle::get('flyswatter')['handles']);
+View::share('projects', \Flyswatter\Models\Project::all());
