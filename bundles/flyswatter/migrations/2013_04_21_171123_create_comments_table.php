@@ -9,7 +9,7 @@ class Flyswatter_Create_Comments_Table {
 	 */
 	public function up()
 	{
-		Schema::create('comments', function($table)
+		Schema::create('flyswatter_comments', function($table)
 		{
 			$table->increments('id');
 			$table->integer('issue_id');
@@ -28,7 +28,7 @@ class Flyswatter_Create_Comments_Table {
 	 */
 	public function down()
 	{
-		Schema::drop('comments');
+		Schema::drop('flyswatter_comments');
 	}
 
 }

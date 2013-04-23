@@ -9,7 +9,7 @@ class Flyswatter_Create_Issues_Table {
 	 */
 	public function up()
 	{
-		Schema::create('issues', function($table)
+		Schema::create('flyswatter_issues', function($table)
 		{
 			$table->increments('id');
 			$table->integer('project_id');
@@ -31,7 +31,7 @@ class Flyswatter_Create_Issues_Table {
 	 */
 	public function down()
 	{
-		Schema::drop('issues');
+		Schema::drop('flyswatter_issues');
 	}
 
 }
