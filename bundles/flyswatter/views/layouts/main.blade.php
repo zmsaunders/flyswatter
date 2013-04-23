@@ -16,11 +16,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="/issues">Flyswatter</a>
+					<a class="brand" href="{{$flyswatter}}">Flyswatter</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><a href="/issues">Dashboard</a></li>
-							<li><a href="/issues/new">New Issue</a></li>
+							<li><a href="{{$flyswatter}}">Dashboard</a></li>
+							<li><a href="{{$flyswatter}}/issue/new">New Issue</a></li>
 						</ul>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 						@section('nav')
 							<li class="nav-header">Projects</li>
 							@foreach($projects as $project)
-							<li><a href="/issues/project/{{$project->id}}">{{$project->name}}</a></li>
+							<li><a href="{{$flyswatter}}/project/view/{{$project->id}}">{{$project->name}}</a></li>
 							@endforeach
 						@yield_section
 						</ul>

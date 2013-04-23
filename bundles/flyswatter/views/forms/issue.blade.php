@@ -6,11 +6,21 @@
 @endsection
 
 @section('content')
+	@forelse(@$errors->messages as $field => $error)
+		<div class="alert alert-error alert-missing">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Error with {{$field}}</strong>
+				@foreach($error as $message)
+					<br />{{$message}}
+				@endforeach
+		</div>
+	@empty
+	@endforelse
 	<form method="POST" action="{{$flyswatter}}/issue/new">
 		<div class="row-fluid">
 			<div class="span12">
 				<label>What's the issue?</label>
-				<input class="span12" type="text" placeholder="Enter a quick summary in a few words." required>
+				<input name="summary" class="span12" type="text" placeholder="Enter a quick summary in a few words." required>
 			</div>
 		</div>
 		<div class="row-fluid">

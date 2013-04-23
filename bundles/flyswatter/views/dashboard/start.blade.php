@@ -14,7 +14,7 @@
 			<h3>{{$project->name}}</h3>
 			<div class="well">
 			@foreach($project->issues()->take(5)->get() as $issue)
-				<h5><a href="#">{{ $issue->summary }}</a></h5>
+				<h5><a href="{{$flyswatter}}/issue/view/{{$issue->id}}">{{ $issue->summary }}</a></h5>
 				<p class="muted"><small>Comments: {{$issue->comments()->count()}}  | Reported by: {{$issue->reporter}} | Assigned to: {{ $issue->owner }}</small></p>
 				<hr />
 			@endforeach
