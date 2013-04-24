@@ -4,4 +4,4 @@ test:
         - php artisan migrate:install --env=circleci
         - php artisan migrate --env=circleci
     override:
-        - php artisan test
+        - php artisan test flyswatter
