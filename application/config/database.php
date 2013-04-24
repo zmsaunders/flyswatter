@@ -63,7 +63,7 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => 'application',
+			'database' => 'devdb',
 			'prefix'   => '',
 		),
 
